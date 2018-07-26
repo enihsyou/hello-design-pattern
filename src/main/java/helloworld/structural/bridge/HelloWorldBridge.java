@@ -5,7 +5,7 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public class HelloWorldBridge implements HelloWorld{
+public class HelloWorldBridge implements HelloWorld {
 
     private HelloWorldImpl helloWorldImpl;
 

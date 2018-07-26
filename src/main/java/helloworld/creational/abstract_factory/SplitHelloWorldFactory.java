@@ -7,7 +7,7 @@ import helloworld.SplitHelloWorld;
  */
 public interface SplitHelloWorldFactory {
 
-    public SplitHelloWorld.HelloWorldInterjection createHelloWorldInterjection();
+    SplitHelloWorld.HelloWorldInterjection createHelloWorldInterjection();
 
-    public SplitHelloWorld.HelloWorldObject createHelloWorldObject();
+    SplitHelloWorld.HelloWorldObject createHelloWorldObject();
 }

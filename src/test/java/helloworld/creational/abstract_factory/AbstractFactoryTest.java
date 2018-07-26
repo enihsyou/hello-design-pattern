@@ -1,7 +1,5 @@
 package helloworld.creational.abstract_factory;
 
-import helloworld.creational.abstract_factory.AbstractFactory;
-import helloworld.creational.abstract_factory.SplitHelloWorldFactory;
 import org.junit.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,7 +11,7 @@ import static org.hamcrest.Matchers.is;
 public class AbstractFactoryTest {
 
     @Test
-    public void testHelloWorld() throws InstantiationException, IllegalAccessException {
+    public void testHelloWorld() throws ReflectiveOperationException {
         SplitHelloWorldFactory splitHelloWorldFactory = AbstractFactory.select(AbstractFactory.Type.Java);
         assertThat(splitHelloWorldFactory.createHelloWorldObject().object(), is("Java"));
         assertThat(splitHelloWorldFactory.createHelloWorldInterjection().interjection(), is("Hello"));

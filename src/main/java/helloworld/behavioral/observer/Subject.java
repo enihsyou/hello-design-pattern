@@ -1,6 +1,5 @@
 package helloworld.behavioral.observer;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,18 +11,15 @@ public class Subject {
     private List<Observer> observers;
 
     public Subject() {
-        this.observers = new LinkedList<Observer>();
+        this.observers = new LinkedList<>();
     }
 
-    public Subject attach(Observer observer){
+    public Subject attach(Observer observer) {
         observers.add(observer);
         return this;
     }
 
-    public void notifyObservers(){
-        for (Observer observer : observers) {
-            observer.update();
-        }
+    public void notifyObservers() {
+        observers.forEach(Observer::update);
     }
-
 }

@@ -5,7 +5,7 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public class HelloWorldStrategyContext implements HelloWorld{
+public class HelloWorldStrategyContext implements HelloWorld {
 
     private HelloWorldStrategy helloWorldStrategy;
 

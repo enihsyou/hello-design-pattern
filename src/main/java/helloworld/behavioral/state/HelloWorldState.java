@@ -5,5 +5,5 @@ package helloworld.behavioral.state;
  */
 public interface HelloWorldState {
 
-    public void append(HelloWorldStateContext helloWorldStateContext, String word);
+    void append(HelloWorldStateContext helloWorldStateContext, String word);
 }

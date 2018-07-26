@@ -3,7 +3,7 @@ package helloworld.behavioral.visitor;
 /**
  * @author yihua.huang@dianping.com
  */
-public class HelloWorldCharacterElement implements HelloWorldElement{
+public class HelloWorldCharacterElement implements HelloWorldElement {
 
     private char ch;
 

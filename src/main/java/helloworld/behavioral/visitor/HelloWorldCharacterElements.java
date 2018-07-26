@@ -1,7 +1,8 @@
 package helloworld.behavioral.visitor;
 
-import java.util.ArrayList;
+import java.nio.CharBuffer;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author yihua.huang@dianping.com
@@ -10,17 +11,16 @@ public class HelloWorldCharacterElements implements HelloWorldElement {
 
     private List<HelloWorldCharacterElement> helloWorldCharacterElements;
 
-    public HelloWorldCharacterElements(char... chars){
-        this.helloWorldCharacterElements = new ArrayList<HelloWorldCharacterElement>();
-        for (char ch : chars) {
-             helloWorldCharacterElements.add(new HelloWorldCharacterElement(ch));
-        }
+    public HelloWorldCharacterElements(char... chars) {
+        this.helloWorldCharacterElements =
+            CharBuffer.wrap(chars)
+                .chars()
+                .mapToObj((ch) -> new HelloWorldCharacterElement((char) ch))
+                .collect(Collectors.toList());
     }
 
     @Override
     public void accept(HelloWorldVisitor visitor) {
-        for (HelloWorldCharacterElement helloWorldCharacterElement : helloWorldCharacterElements) {
-            visitor.visit(helloWorldCharacterElement);
-        }
+        helloWorldCharacterElements.forEach(visitor::visit);
     }
 }

@@ -17,7 +17,7 @@ public class DesignPatternSplitHelloWorldFactory implements SplitHelloWorldFacto
         return new DesignPatternHelloWorldObject();
     }
 
-    class DesignPatternHelloWorldObject implements SplitHelloWorld.HelloWorldObject {
+    static class DesignPatternHelloWorldObject implements SplitHelloWorld.HelloWorldObject {
 
         @Override
         public String object() {

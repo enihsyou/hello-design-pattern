@@ -19,8 +19,8 @@ public class HelloWorldDecorator implements HelloWorld {
         return helloWorld.helloWorld();
     }
 
-    public String helloDecorator(){
-        return StringUtils.substringBefore(helloWorld.helloWorld()," ")+" Decorator!";
+    public String helloDecorator() {
+        return StringUtils.substringBefore(helloWorld.helloWorld(), " ") + " Decorator!";
     }
 
     public static class DefaultHelloWorld implements HelloWorld {

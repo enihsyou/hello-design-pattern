@@ -17,7 +17,7 @@ public class JavaSplitHelloWorldFactory implements SplitHelloWorldFactory {
         return new JavaHelloWorldObject();
     }
 
-    class JavaHelloWorldObject implements SplitHelloWorld.HelloWorldObject {
+    static class JavaHelloWorldObject implements SplitHelloWorld.HelloWorldObject {
 
         @Override
         public String object() {

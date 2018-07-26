@@ -5,5 +5,5 @@ package helloworld.behavioral.visitor;
  */
 public interface HelloWorldVisitor {
 
-    public void visit(HelloWorldElement helloWorldElement);
+    void visit(HelloWorldElement helloWorldElement);
 }

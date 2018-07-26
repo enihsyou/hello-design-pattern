@@ -5,16 +5,17 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public abstract class AbstractHelloWorld implements HelloWorld{
+public abstract class AbstractHelloWorld implements HelloWorld {
 
     @Override
     public String helloWorld() {
-        StringBuffer accum = new StringBuffer();
-        accum.append(getInterjection());
-        accum.append(getSeparator());
-        accum.append(getObject());
-        accum.append(getTerminator());
-        return accum.toString();
+        //noinspection StringBufferReplaceableByString
+        StringBuilder accumulator = new StringBuilder();
+        accumulator.append(getInterjection());
+        accumulator.append(getSeparator());
+        accumulator.append(getObject());
+        accumulator.append(getTerminator());
+        return accumulator.toString();
     }
 
     public abstract String getInterjection();

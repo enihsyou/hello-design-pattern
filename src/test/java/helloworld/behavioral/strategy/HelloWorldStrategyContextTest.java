@@ -11,10 +11,11 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldStrategyContextTest {
 
     @Test
-    public void testHelloWorldStrategyContext(){
-        HelloWorldStrategyContext helloWorldStrategyContext = new HelloWorldStrategyContext(new JavaHelloWorldStrategy());
-        assertThat(helloWorldStrategyContext.helloWorld(),is("Hello Java!"));
+    public void testHelloWorldStrategyContext() {
+        HelloWorldStrategyContext helloWorldStrategyContext =
+            new HelloWorldStrategyContext(new JavaHelloWorldStrategy());
+        assertThat(helloWorldStrategyContext.helloWorld(), is("Hello Java!"));
         helloWorldStrategyContext = new HelloWorldStrategyContext(new DesignPatternHelloWorldStrategy());
-        assertThat(helloWorldStrategyContext.helloWorld(),is("Hello Strategy!"));
+        assertThat(helloWorldStrategyContext.helloWorld(), is("Hello Strategy!"));
     }
 }

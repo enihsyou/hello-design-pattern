@@ -11,7 +11,8 @@ public class HelloWorldMediator {
 
     private SplitHelloWorld.HelloWorldObject helloWorldObject;
 
-    public HelloWorldMediator(SplitHelloWorld.HelloWorldInterjection helloWorldInterjection, SplitHelloWorld.HelloWorldObject helloWorldObject) {
+    public HelloWorldMediator(SplitHelloWorld.HelloWorldInterjection helloWorldInterjection,
+                              SplitHelloWorld.HelloWorldObject helloWorldObject) {
         this.helloWorldInterjection = helloWorldInterjection;
         this.helloWorldObject = helloWorldObject;
     }

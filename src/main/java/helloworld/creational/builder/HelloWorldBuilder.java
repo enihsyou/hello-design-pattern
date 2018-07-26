@@ -27,17 +27,7 @@ public class HelloWorldBuilder {
     }
 
     public HelloWorld getHelloWorld() {
-        return new SplitHelloWorld(new SplitHelloWorld.HelloWorldInterjection() {
-            @Override
-            public String interjection() {
-                return interjection;
-            }
-        }, new SplitHelloWorld.HelloWorldObject() {
-            @Override
-            public String object() {
-                return object;
-            }
-        });
+        return new SplitHelloWorld(() -> interjection, () -> object);
     }
 
 }

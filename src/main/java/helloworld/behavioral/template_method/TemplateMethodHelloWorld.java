@@ -3,7 +3,8 @@ package helloworld.behavioral.template_method;
 /**
  * @author yihua.huang@dianping.com
  */
-public class TemplateMethodHelloWorld extends AbstractHelloWorld{
+public class TemplateMethodHelloWorld extends AbstractHelloWorld {
+
     @Override
     public String getInterjection() {
         return "Hello";

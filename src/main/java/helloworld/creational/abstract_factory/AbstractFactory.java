@@ -1,6 +1,6 @@
 package helloworld.creational.abstract_factory;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 /**
@@ -8,20 +8,21 @@ import java.util.Map;
  */
 public class AbstractFactory {
 
-    public enum Type {
-        Java, DesignPattern;
-    }
-
-    private static Map<Type, Class<? extends SplitHelloWorldFactory>> map;
+    private static final Map<Type, Class<? extends SplitHelloWorldFactory>> map;
 
     static {
-        map = new HashMap<Type, Class<? extends SplitHelloWorldFactory>>();
+        map = new EnumMap<>(Type.class);
+
         map.put(Type.Java, JavaSplitHelloWorldFactory.class);
         map.put(Type.DesignPattern, DesignPatternSplitHelloWorldFactory.class);
     }
 
-    public static SplitHelloWorldFactory select(Type type) throws IllegalAccessException, InstantiationException {
-        return map.get(type).newInstance();
+    public static SplitHelloWorldFactory select(Type type) throws ReflectiveOperationException {
+        return map.get(type).getConstructor().newInstance();
+    }
+
+    public enum Type {
+        Java, DesignPattern
     }
 
 }

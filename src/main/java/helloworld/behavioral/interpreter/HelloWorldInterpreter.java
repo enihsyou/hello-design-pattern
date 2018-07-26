@@ -28,13 +28,14 @@ public class HelloWorldInterpreter {
     public void interpret(String expr) {
         String functionName = StringUtils.trim(StringUtils.substringBefore(expr, "("));
         Function function = functions.get(functionName);
-        String stringParam = StringUtils.strip(StringUtils.substringBeforeLast(StringUtils.substringAfter(expr, "("), ")"), "'");
+        String stringParam =
+            StringUtils.strip(StringUtils.substringBeforeLast(StringUtils.substringAfter(expr, "("), ")"), "'");
         function.call(stringParam);
     }
 
     public void registerFunction(String name, Function function) {
         if (functions == null) {
-            functions = new HashMap<String, Function>();
+            functions = new HashMap<>();
         }
         functions.put(name, function);
     }
@@ -54,7 +55,7 @@ public class HelloWorldInterpreter {
     }
 
     private interface Function {
-        public void call(String paramString);
-    }
 
+        void call(String paramString);
+    }
 }

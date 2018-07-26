@@ -13,7 +13,7 @@ public class HelloWorldPrototype implements HelloWorld {
         this.helloWorld = helloWorld;
     }
 
-    public HelloWorld clone() {
+    public HelloWorld copy() {
         return new HelloWorldPrototype(this.helloWorld);
     }
 

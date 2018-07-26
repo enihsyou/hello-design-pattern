@@ -5,7 +5,7 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public class HelloWorldMementoOriginator implements HelloWorld{
+public class HelloWorldMementoOriginator implements HelloWorld {
 
     private String state;
 
@@ -28,6 +28,7 @@ public class HelloWorldMementoOriginator implements HelloWorld{
     }
 
     public static class Memento {
+
         private final String state;
 
         public Memento(String stateToSave) {

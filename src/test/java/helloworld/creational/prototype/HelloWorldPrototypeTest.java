@@ -2,6 +2,7 @@ package helloworld.creational.prototype;
 
 import helloworld.HelloWorld;
 import org.junit.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -11,8 +12,8 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldPrototypeTest {
 
     @Test
-    public void testHelloWorldPrototype(){
-        HelloWorld helloWorld = HelloWorldPrototype.PROTOTYPE.clone();
-        assertThat(helloWorld.helloWorld(),is("Hello Prototype!"));
+    public void testHelloWorldPrototype() {
+        HelloWorld helloWorld = HelloWorldPrototype.PROTOTYPE.copy();
+        assertThat(helloWorld.helloWorld(), is("Hello Prototype!"));
     }
 }

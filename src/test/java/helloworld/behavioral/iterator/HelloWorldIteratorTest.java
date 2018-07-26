@@ -1,6 +1,7 @@
 package helloworld.behavioral.iterator;
 
 import org.junit.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -10,20 +11,22 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldIteratorTest {
 
     @Test
-    public void testHelloWorldIterator(){
+    public void testHelloWorldIterator() {
         final String helloIterator = "Hello Iterator!";
-        HelloWorldCharacterIterator helloWorldCharacterIterator = new HelloWorldCharacterIterator(helloIterator.toCharArray());
+        HelloWorldCharacterIterator helloWorldCharacterIterator =
+            new HelloWorldCharacterIterator(helloIterator.toCharArray());
         StringBuffer stringBuffer = new StringBuffer();
-        while (helloWorldCharacterIterator.hasNext()){
+        while (helloWorldCharacterIterator.hasNext()) {
             stringBuffer.append(helloWorldCharacterIterator.next());
         }
-        assertThat(stringBuffer.toString(),is(helloIterator));
+        assertThat(stringBuffer.toString(), is(helloIterator));
     }
 
     @Test(expected = UnsupportedOperationException.class)
-    public void testHelloWorldIteratorRemove(){
+    public void testHelloWorldIteratorRemove() {
         final String helloIterator = "Hello Iterator!";
-        HelloWorldCharacterIterator helloWorldCharacterIterator = new HelloWorldCharacterIterator(helloIterator.toCharArray());
+        HelloWorldCharacterIterator helloWorldCharacterIterator =
+            new HelloWorldCharacterIterator(helloIterator.toCharArray());
         helloWorldCharacterIterator.remove();
     }
 }

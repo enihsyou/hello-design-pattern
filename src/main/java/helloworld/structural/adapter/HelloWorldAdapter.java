@@ -5,7 +5,7 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public class HelloWorldAdapter implements HelloWorld{
+public class HelloWorldAdapter implements HelloWorld {
 
     private HelloAdapterDesignPattern helloDesignPattern;
 

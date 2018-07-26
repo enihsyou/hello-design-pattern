@@ -13,7 +13,7 @@ public class HelloWorldFlyWeightFactory {
     private Map<String, HelloWorld> innerCache;
 
     private HelloWorldFlyWeightFactory() {
-        innerCache = new HashMap<String, HelloWorld>();
+        innerCache = new HashMap<>();
     }
 
     /**
@@ -34,6 +34,7 @@ public class HelloWorldFlyWeightFactory {
     }
 
     private static class HelloWorldFactoryHolder {
+
         private static final HelloWorldFlyWeightFactory INSTANCE = new HelloWorldFlyWeightFactory();
     }
 }

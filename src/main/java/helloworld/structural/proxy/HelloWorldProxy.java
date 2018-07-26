@@ -16,7 +16,7 @@ public class HelloWorldProxy implements HelloWorld {
 
     @Override
     public String helloWorld() {
-        return StringUtils.substringBefore(helloWorld.helloWorld()," ")+" Proxy!";
+        return StringUtils.substringBefore(helloWorld.helloWorld(), " ") + " Proxy!";
     }
 
     public static class DefaultHelloWorld implements HelloWorld {

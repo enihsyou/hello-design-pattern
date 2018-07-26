@@ -1,8 +1,8 @@
 package helloworld;
 
-import helloworld.behavioral.chain_of_responsibility.HelloWorldObjectHandler;
-import helloworld.behavioral.chain_of_responsibility.HelloWorldInterjectionHandler;
 import helloworld.behavioral.chain_of_responsibility.HelloWorldHandler;
+import helloworld.behavioral.chain_of_responsibility.HelloWorldInterjectionHandler;
+import helloworld.behavioral.chain_of_responsibility.HelloWorldObjectHandler;
 import helloworld.behavioral.command.Command;
 import helloworld.behavioral.command.HelloWorldPrintCommand;
 import helloworld.behavioral.interpreter.HelloWorldInterpreter;
@@ -19,11 +19,11 @@ import helloworld.behavioral.strategy.HelloWorldStrategyContext;
 import helloworld.behavioral.template_method.TemplateMethodHelloWorld;
 import helloworld.behavioral.visitor.HelloWorldCharacterElements;
 import helloworld.behavioral.visitor.HelloWorldCharacterVisitor;
-import helloworld.behavioral.visitor.HelloWorldVisitor;
 import helloworld.creational.abstract_factory.AbstractFactory;
 import helloworld.creational.abstract_factory.SplitHelloWorldFactory;
 import helloworld.creational.builder.HelloWorldBuilder;
 import helloworld.creational.factory_method.FactoryMethodHelloWorldFactory;
+import helloworld.creational.factory_method.HelloWorldFactory;
 import helloworld.creational.prototype.HelloWorldPrototype;
 import helloworld.creational.singleton.HelloWorldSingleton;
 import helloworld.structural.adapter.HelloAdapterDesignPattern;
@@ -41,7 +41,7 @@ import helloworld.structural.proxy.HelloWorldProxy;
  */
 public class Main {
 
-    public static void main(String[] args) throws InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws ReflectiveOperationException {
 
         System.out.println("We are creational patterns!");
 
@@ -49,27 +49,22 @@ public class Main {
 
         SplitHelloWorldFactory abstractFactory = AbstractFactory.select(AbstractFactory.Type.DesignPattern);
         HelloWorld abstractFactoryHelloWorld = new SplitHelloWorld(abstractFactory.createHelloWorldInterjection(),
-                abstractFactory.createHelloWorldObject());
+            abstractFactory.createHelloWorldObject());
         System.out.println(abstractFactoryHelloWorld.helloWorld());
 
         System.out.println("2. Builder: ");
         HelloWorld builderHelloWorld = HelloWorldBuilder.builder()
-                .interjection("Hello")
-                .object("Builder").getHelloWorld();
+            .interjection("Hello")
+            .object("Builder").getHelloWorld();
         System.out.println(builderHelloWorld.helloWorld());
 
         System.out.println("3. Factory Method: ");
-        /**
-         * Difference between "abstract factory" and "factory method" is the abstracting point:
-         *  1. Abstracting point of abstract factory is factory.
-         *  2. Abstracting point of factory method is generated object.
-         */
-        FactoryMethodHelloWorldFactory factoryMethodHelloWorldFactory = new FactoryMethodHelloWorldFactory();
+        HelloWorldFactory factoryMethodHelloWorldFactory = new FactoryMethodHelloWorldFactory();
         HelloWorld factoryMethodHelloWorld = factoryMethodHelloWorldFactory.createHelloWorld();
         System.out.println(factoryMethodHelloWorld.helloWorld());
 
         System.out.println("4. Prototype: ");
-        HelloWorld prototypeHelloWorld = HelloWorldPrototype.PROTOTYPE.clone();
+        HelloWorld prototypeHelloWorld = HelloWorldPrototype.PROTOTYPE.copy();
         System.out.println(prototypeHelloWorld.helloWorld());
 
         System.out.println("5. Singleton: ");
@@ -80,7 +75,7 @@ public class Main {
         System.out.println("We are structural patterns!");
 
         System.out.println("6. Adapter: ");
-        HelloWorld adapterHelloWorld = new HelloWorldAdapter(new HelloAdapterDesignPattern());
+        HelloWorld adapterHelloWorld = new HelloWorldAdapter(new HelloAdapterDesignPattern("Hello Adapter!"));
         System.out.println(adapterHelloWorld.helloWorld());
 
         System.out.println("7. Bridge: ");
@@ -88,7 +83,8 @@ public class Main {
         //leave bridgeHelloWorld' output to compositeHelloWorld
 
         System.out.println("8. Composite: ");
-        HelloWorld compositeHelloWorld = new CompositeHelloWorld(bridgeHelloWorld, new CompositeHelloWorld.DefaultHelloWorld());
+        HelloWorld compositeHelloWorld =
+            new CompositeHelloWorld(adapterHelloWorld, bridgeHelloWorld, new CompositeHelloWorld.DefaultHelloWorld());
         System.out.println(compositeHelloWorld.helloWorld());
 
         System.out.println("9. Decorator: ");
@@ -111,7 +107,8 @@ public class Main {
         System.out.println("We are behavioral patterns!");
 
         System.out.println("13. Chain of Responsibility: ");
-        HelloWorldHandler helloWorldChainOfResponsibility = new HelloWorldInterjectionHandler().setNext(new HelloWorldObjectHandler());
+        HelloWorldHandler helloWorldChainOfResponsibility =
+            new HelloWorldInterjectionHandler().setNext(new HelloWorldObjectHandler());
         System.out.println(helloWorldChainOfResponsibility.helloWorld());
 
         System.out.println("14. Command: ");
@@ -123,7 +120,8 @@ public class Main {
         helloWorldInterpreter.interpret("println('Hello Interpreter!')");
 
         System.out.println("16. Iterator: ");
-        HelloWorldCharacterIterator helloWorldCharacterIterator = new HelloWorldCharacterIterator("Hello Iterator!".toCharArray());
+        HelloWorldCharacterIterator helloWorldCharacterIterator =
+            new HelloWorldCharacterIterator("Hello Iterator!".toCharArray());
         while (helloWorldCharacterIterator.hasNext()) {
             System.out.print(helloWorldCharacterIterator.next());
         }
@@ -135,6 +133,7 @@ public class Main {
         HelloWorldMediator helloWorldMediator = new HelloWorldMediator(helloWorldInterjection, helloWorldObject);
         helloWorldInterjection.setHelloWorldMediator(helloWorldMediator);
         helloWorldObject.setHelloWorldMediator(helloWorldMediator);
+        System.out.println(helloWorldInterjection.helloWorld());
         System.out.println(helloWorldObject.helloWorld());
 
         System.out.println("18. Memento: ");
@@ -154,7 +153,8 @@ public class Main {
         System.out.println(stateHelloWorld.helloWorld());
 
         System.out.println("21. Strategy: ");
-        HelloWorldStrategyContext helloWorldStrategyContext = new HelloWorldStrategyContext(new DesignPatternHelloWorldStrategy());
+        HelloWorldStrategyContext helloWorldStrategyContext =
+            new HelloWorldStrategyContext(new DesignPatternHelloWorldStrategy());
         System.out.println(helloWorldStrategyContext.helloWorld());
 
         System.out.println("22. Template Method: ");
@@ -162,10 +162,10 @@ public class Main {
         System.out.println(templateMethodHelloWorld.helloWorld());
 
         System.out.println("23. Visitor: ");
-        HelloWorldCharacterElements helloWorldCharacterElements = new HelloWorldCharacterElements("Hello Visitor!".toCharArray());
+        HelloWorldCharacterElements helloWorldCharacterElements =
+            new HelloWorldCharacterElements("Hello Visitor!".toCharArray());
         HelloWorldCharacterVisitor helloWorldCharacterVisitor = new HelloWorldCharacterVisitor();
         helloWorldCharacterElements.accept(helloWorldCharacterVisitor);
         System.out.println(helloWorldCharacterVisitor.helloWorld());
-
     }
 }

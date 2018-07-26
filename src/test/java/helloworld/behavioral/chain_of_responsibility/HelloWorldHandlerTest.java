@@ -1,6 +1,7 @@
 package helloworld.behavioral.chain_of_responsibility;
 
 import org.junit.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -10,8 +11,9 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldHandlerTest {
 
     @Test
-    public void testHelloWorldHandler(){
-        HelloWorldHandler helloWorldChainOfResponsibility = new HelloWorldInterjectionHandler().setNext(new HelloWorldObjectHandler());
-        assertThat(helloWorldChainOfResponsibility.helloWorld(),is("Hello Chain of Responsibility!"));
+    public void testHelloWorldHandler() {
+        HelloWorldHandler helloWorldChainOfResponsibility =
+            new HelloWorldInterjectionHandler().setNext(new HelloWorldObjectHandler());
+        assertThat(helloWorldChainOfResponsibility.helloWorld(), is("Hello Chain of Responsibility!"));
     }
 }

@@ -5,5 +5,5 @@ package helloworld;
  */
 public interface HelloWorld {
 
-    public String helloWorld();
+    String helloWorld();
 }

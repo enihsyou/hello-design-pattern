@@ -2,6 +2,7 @@ package helloworld.creational.singleton;
 
 import helloworld.HelloWorld;
 import org.junit.Test;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -11,8 +12,8 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldSingletonTest {
 
     @Test
-    public void testHelloWorldSingleton(){
+    public void testHelloWorldSingleton() {
         HelloWorld helloWorld = HelloWorldSingleton.instance();
-        assertThat(helloWorld.helloWorld(),is("Hello Singleton!"));
+        assertThat(helloWorld.helloWorld(), is("Hello Singleton!"));
     }
 }

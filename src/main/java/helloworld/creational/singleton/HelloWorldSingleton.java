@@ -16,11 +16,10 @@ public class HelloWorldSingleton implements HelloWorld {
         return HelloWorldSingletonHolder.INSTANCE;
     }
 
-    private HelloWorldSingleton() {
+    private HelloWorldSingleton() {}
 
-    }
+    private static class HelloWorldSingletonHolder {
 
-    static class HelloWorldSingletonHolder {
         private static final HelloWorldSingleton INSTANCE = new HelloWorldSingleton();
     }
 

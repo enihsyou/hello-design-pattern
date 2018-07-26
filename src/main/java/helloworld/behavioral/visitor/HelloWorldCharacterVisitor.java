@@ -7,22 +7,20 @@ import helloworld.HelloWorld;
  */
 public class HelloWorldCharacterVisitor implements HelloWorldVisitor, HelloWorld {
 
-    private StringBuffer accum;
+    private StringBuffer accumulator;
 
-    public HelloWorldCharacterVisitor(){
-        this.accum = new StringBuffer();
+    public HelloWorldCharacterVisitor() {
+        this.accumulator = new StringBuffer();
     }
 
     @Override
     public void visit(HelloWorldElement helloWorldElement) {
-        if (helloWorldElement instanceof HelloWorldCharacterElement){
-            HelloWorldCharacterElement helloWorldCharacterElement = (HelloWorldCharacterElement) helloWorldElement;
-            accum.append(helloWorldCharacterElement.getCh());
-        }
+        HelloWorldCharacterElement helloWorldCharacterElement = (HelloWorldCharacterElement) helloWorldElement;
+        accumulator.append(helloWorldCharacterElement.getCh());
     }
 
     @Override
     public String helloWorld() {
-        return accum.toString();
+        return accumulator.toString();
     }
 }

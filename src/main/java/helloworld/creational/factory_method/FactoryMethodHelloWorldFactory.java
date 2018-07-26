@@ -5,15 +5,10 @@ import helloworld.HelloWorld;
 /**
  * @author yihua.huang@dianping.com
  */
-public class FactoryMethodHelloWorldFactory extends HelloWorldFactory{
+public class FactoryMethodHelloWorldFactory implements HelloWorldFactory {
 
     @Override
     public HelloWorld createHelloWorld() {
-        return new HelloWorld() {
-            @Override
-            public String helloWorld() {
-                return "Hello Factory Method!";
-            }
-        };
+        return () -> "Hello Factory Method!";
     }
 }

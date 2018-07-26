@@ -11,12 +11,12 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldMementoTest {
 
     @Test
-    public void testHelloWorldMediator(){
+    public void testHelloWorldMediator() {
         HelloWorldMementoOriginator helloWorldMementoOriginator = new HelloWorldMementoOriginator();
         HelloWorldMementoOriginator.Memento memento = helloWorldMementoOriginator.set("Hello Memento!").saveToMemento();
         helloWorldMementoOriginator.set("Hello Whatever!");
         assertThat(helloWorldMementoOriginator.helloWorld(), is("Hello Whatever!"));
         helloWorldMementoOriginator.restoreFromMemento(memento);
-        assertThat(helloWorldMementoOriginator.helloWorld(),is("Hello Memento!"));
+        assertThat(helloWorldMementoOriginator.helloWorld(), is("Hello Memento!"));
     }
 }

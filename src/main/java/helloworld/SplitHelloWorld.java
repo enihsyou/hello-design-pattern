@@ -27,12 +27,12 @@ public class SplitHelloWorld implements HelloWorld {
 
     public interface HelloWorldInterjection {
 
-        public String interjection();
+        String interjection();
     }
 
     public interface HelloWorldObject {
 
-        public String object();
+        String object();
     }
 
     public static class DefaultInterjection implements HelloWorldInterjection {

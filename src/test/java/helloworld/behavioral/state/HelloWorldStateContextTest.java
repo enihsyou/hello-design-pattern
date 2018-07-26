@@ -11,13 +11,13 @@ import static org.hamcrest.Matchers.is;
 public class HelloWorldStateContextTest {
 
     @Test
-    public void testHelloWorldStateContext(){
+    public void testHelloWorldStateContext() {
         HelloWorldStateContext helloWorldStateContext = new HelloWorldStateContext();
         helloWorldStateContext.appendWord("Hello");
-        assertThat(helloWorldStateContext.helloWorld(),is("Hello "));
+        assertThat(helloWorldStateContext.helloWorld(), is("Hello "));
         helloWorldStateContext.appendWord("State");
-        assertThat(helloWorldStateContext.helloWorld(),is("Hello State!"));
+        assertThat(helloWorldStateContext.helloWorld(), is("Hello State!"));
         helloWorldStateContext.appendWord("Whatever");
-        assertThat(helloWorldStateContext.helloWorld(),is("Hello State!"));
+        assertThat(helloWorldStateContext.helloWorld(), is("Hello State!"));
     }
 }

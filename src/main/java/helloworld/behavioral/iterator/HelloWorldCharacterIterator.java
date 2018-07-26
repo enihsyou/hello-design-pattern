@@ -1,7 +1,7 @@
 package helloworld.behavioral.iterator;
 
 import java.util.Iterator;
-import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * @author yihua.huang@dianping.com
@@ -27,6 +27,7 @@ public class HelloWorldCharacterIterator implements Iterator<Character> {
 
     @Override
     public Character next() {
+        if (index >= size) throw new NoSuchElementException();
         return characters[index++];
     }
 

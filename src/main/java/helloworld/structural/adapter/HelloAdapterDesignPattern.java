@@ -5,7 +5,13 @@ package helloworld.structural.adapter;
  */
 public class HelloAdapterDesignPattern {
 
-    public String helloDesignPattern(){
-        return "Hello Adapter!";
+    private String value;
+
+    public HelloAdapterDesignPattern(String value) {
+        this.value = value;
+    }
+
+    public String helloDesignPattern() {
+        return value;
     }
 }
